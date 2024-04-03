@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figure</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:#333;
+           
+        }
+        figure{
+            width: 45%;
+            height: 65vh;
+            background-color:#fff;
+            display: flex;
+            padding:15px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+        figure>*{
+            height: 100%;
+            /* border:2px solid red; */
+            padding:10px;
+            transition:.4s;
+        }
+        figure>figcaption{
+            width: 55%;
+        }
+        figure>figcaption>section{
+            width: 100%;
+            /* border:5px solid gold; */
+        }
+        figure>figcaption>section:nth-of-type(1){
+            height: 80%;
+        }
+        .text-top>h2{
+            font-size:3rem;
+            margin:10px 0;
+        }
+        .text-top>p{
+            color:gray;
+        }
+        .text-top>span{
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border:1px solid gray;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size:1.2rem;
+        }
+        .text-top>strong{
+            color:gray;
+            margin:15px;
+        }
+        figure>figcaption>section:nth-of-type(2){
+            height: 20%;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        .txt-bottom::after{
+            content:'';
+            display: block;
+            width: 70%;
+            height: 0;
+            border:2px solid gray;
+            position: absolute;
+            top: 0;left: 0;
+        }
+        .txt-bottomText{
+            position: absolute;
+            right:10px;top:-7px;
+            font-weight: bold;
+        }
+        .Btn{
+            display: flex;
+            width: 100px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            font-size:2rem;
+            cursor: pointer;
+            border-radius:4px;
+            animation:icon .5s infinite linear alternate;
+        }
+        @keyframes icon {
+            form{
+                transform:translateX(0);
+            }
+            to{
+                transform:translateX(-10px);
+            }
+        }
+        figure>img{
+            width: 45%;
+            object-fit:cover;
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <figcaption id="caption">
+            <section class="text-top">
+                <span>01</span>
+                <strong>Ismail keyhan</strong>
+                <h2>Fashon style</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam magni adipisci ipsam provident et, nemo nam quod, consequuntur expedita nostrum ipsa? Voluptates sunt mollitia, minima ab quidem fugiat. Doloribus, laborum!
+                </p>
+            </section>
+            <section class="txt-bottom">
+                <span class="txt-bottomText">READ</span>
+                <span class="Btn">⬅</span>
+        </figcaption>
+        <img src="img.jpg" alt="" id="img">
+    </figure>
+</body>
+    <script>
+        let flga=1
+        document.getElementsByClassName('Btn')[0].addEventListener('click',function(){
+            if(flga%2){
+                document.getElementById('caption').style.width='45%'
+                document.getElementById('img').style.width='55%'
+            }else{
+                document.getElementById('caption').style.width='55%'
+                document.getElementById('img').style.width='45%'
+            }
+            flga++
+        })
+    </script>
+</html>
